@@ -13,9 +13,11 @@ socket.on("global:message", msg => {
 
 form.addEventListener("submit", e => {
     e.preventDefault();
+
+    let now = new Date().toLocaleTimeString('it-IT').slice(0, 5);
     msgs.innerHTML += `
     <div class="sent-msg-container">
-        <p class="your-name">You</p>
+        <p class="your-name">You - ${now}</p>
         <p class="sent-msg">${input.value}</p>
     </div>
     `;
@@ -24,9 +26,10 @@ form.addEventListener("submit", e => {
 });
 
 socket.on("message:receive", payload => {
+    let now = new Date().toLocaleTimeString('it-IT').slice(0, 5);
     msgs.innerHTML += `
     <div class="received-msg-container">
-        <p class="received-name">${payload.name}</p>
+        <p class="received-name">${payload.name} - ${now}</p>
         <p class="sent-msg">${payload.message}</p>
     </div>
     `;

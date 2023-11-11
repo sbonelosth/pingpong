@@ -1,0 +1,125 @@
+* {
+    font-family: monospace;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background: rgb(187,187,187);
+    background: linear-gradient(356deg, rgba(187,187,187,1) 0%, rgba(255,249,240,1) 50%, rgba(255,253,245,1) 100%);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgb(187,187,187);
+    background: linear-gradient(356deg, rgba(187,187,187,1) 0%, rgba(255,249,240,1) 50%, rgba(255,253,245,1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.msgs-container {
+    width: 80%;
+    height: 500px;
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.msgs {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: #090909;
+}
+
+.join-msg {
+    align-self: center;
+    width: fit-content;
+    background: grey;
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin: 3px 0;
+}
+
+.sent-msg-container {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    width: fit-content;
+    background: darkorange;
+    margin: 3px 0;
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+
+.your-name {
+    margin: 0;
+    font-size: 13px;
+    padding-bottom: 4px;
+    text-align: right;
+    font-weight: bold;
+    color: #090909;
+}
+
+.sent-msg {
+    margin: 0;
+    color: whitesmoke;
+}
+
+.received-msg-container {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    width: fit-content;
+    background: grey;
+    margin: 3px 0;
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+
+.received-name {
+    margin: 0;
+    font-size: 13px;
+    padding-bottom: 4px;
+    font-weight: bold;
+    color: #090909;
+}
+
+.received-msg {
+    margin: 0;
+    color: whitesmoke;
+}
+
+.input-container {
+    display: flex;
+    width: 100%;
+}
+
+.input {
+    flex: 1;
+    height: 40px;
+    font-size: 16px;
+    outline: 0;
+    border: 0;
+    padding: 0 10px;
+    border-top: 2px solid darkorange;
+}
+
+.btn {
+    width: 100px;
+    background: darkorange;
+    color: whitesmoke;
+    font-size: 16px;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+}
