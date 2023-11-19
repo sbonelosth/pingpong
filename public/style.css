@@ -44,7 +44,7 @@ body {
 .join-msg {
     align-self: center;
     width: fit-content;
-    background: grey;
+    color: grey;
     padding: 5px 20px;
     border-radius: 5px;
     margin: 3px 0;
@@ -55,9 +55,10 @@ body {
     flex-direction: column;
     align-self: flex-end;
     width: fit-content;
+    max-width: 50vw;
     background: darkorange;
     margin: 3px 0;
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 5px 20px;
 }
 
@@ -80,9 +81,10 @@ body {
     flex-direction: column;
     align-self: flex-start;
     width: fit-content;
+    max-width: 50vw;
     background: grey;
     margin: 3px 0;
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 5px 20px;
 }
 
