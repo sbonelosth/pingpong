@@ -12,13 +12,13 @@
 
 <body>
     <main class="container">
-        <div class="msgs-container">
+        <div class="msgs-container" id="msgs-container">
             <div class="msgs" id="msgs"></div>
-            <form class="input-container" action="" id="form">
-                <input class="input" type="text" id="msg-input" placeholder="Message">
-                <button class="btn" type="submit" id="send-btn">send</button>
-            </form>
         </div>
+        <form class="input-container" action="" id="form">
+            <input class="input" type="text" id="msg-input" placeholder="Message">
+            <button class="btn" type="submit" id="send-btn">send</button>
+        </form>
     </main>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/node_modules/moment/moment.js"></script>

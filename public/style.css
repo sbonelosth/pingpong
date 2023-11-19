@@ -20,17 +20,20 @@ body {
     background: rgb(187,187,187);
     background: linear-gradient(356deg, rgba(187,187,187,1) 0%, rgba(255,249,240,1) 50%, rgba(255,253,245,1) 100%);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-y: hidden;
 }
 
 .msgs-container {
     width: 80%;
     height: 500px;
-    position: relative;
-    border-radius: 5px;
+    max-height: 500px;
+    position: fixed;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .msgs {
@@ -64,7 +67,7 @@ body {
 
 .your-name {
     margin: 0;
-    font-size: 13px;
+    font-size: 8px;
     padding-bottom: 4px;
     text-align: right;
     font-weight: bold;
@@ -90,7 +93,7 @@ body {
 
 .received-name {
     margin: 0;
-    font-size: 13px;
+    font-size: 8px;
     padding-bottom: 4px;
     font-weight: bold;
     color: gray;
@@ -102,8 +105,10 @@ body {
 }
 
 .input-container {
+    width: 80%;
+    position: fixed;
+    bottom: 6vh;
     display: flex;
-    width: 100%;
 }
 
 .input {
