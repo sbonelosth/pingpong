@@ -16,8 +16,8 @@ form.addEventListener("submit", e => {
 
     let now = new Date().toLocaleTimeString('it-IT').slice(0, 5);
     msgs.innerHTML += `
+    <p class="your-name">${now} - You</p>
     <div class="sent-msg-container">
-        <p class="your-name">You - ${now}</p>
         <p class="sent-msg">${input.value}</p>
     </div>
     `;
@@ -28,8 +28,8 @@ form.addEventListener("submit", e => {
 socket.on("message:receive", payload => {
     let now = new Date().toLocaleTimeString('it-IT').slice(0, 5);
     msgs.innerHTML += `
+    <p class="received-name">${payload.name} - ${now}</p>
     <div class="received-msg-container">
-        <p class="received-name">${payload.name} - ${now}</p>
         <p class="sent-msg">${payload.message}</p>
     </div>
     `;

@@ -68,7 +68,7 @@ body {
     padding-bottom: 4px;
     text-align: right;
     font-weight: bold;
-    color: #090909;
+    color: gray;
 }
 
 .sent-msg {
@@ -93,7 +93,7 @@ body {
     font-size: 13px;
     padding-bottom: 4px;
     font-weight: bold;
-    color: #090909;
+    color: gray;
 }
 
 .received-msg {
