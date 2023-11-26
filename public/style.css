@@ -58,17 +58,18 @@ body {
     flex-direction: column;
     align-self: flex-end;
     width: fit-content;
-    max-width: 50vw;
+    max-width: 30vw;
     background: darkorange;
     margin: 3px 0;
     border-radius: 20px;
-    padding: 5px 20px;
+    padding: 10px 20px;
 }
 
 .your-name {
     margin: 0;
-    font-size: 8px;
+    font-size: 10px;
     padding-bottom: 4px;
+    padding-right: 4px;
     text-align: right;
     font-weight: bold;
     color: gray;
@@ -77,6 +78,7 @@ body {
 .sent-msg {
     margin: 0;
     color: whitesmoke;
+    font-size: 16px;
 }
 
 .received-msg-container {
@@ -84,17 +86,18 @@ body {
     flex-direction: column;
     align-self: flex-start;
     width: fit-content;
-    max-width: 50vw;
+    max-width: 30vw;
     background: grey;
     margin: 3px 0;
     border-radius: 20px;
-    padding: 5px 20px;
+    padding: 10px 20px;
 }
 
 .received-name {
     margin: 0;
-    font-size: 8px;
+    font-size: 10px;
     padding-bottom: 4px;
+    padding-left: 4px;
     font-weight: bold;
     color: gray;
 }
@@ -102,6 +105,7 @@ body {
 .received-msg {
     margin: 0;
     color: whitesmoke;
+    font-size: 16px;
 }
 
 .input-container {
@@ -113,7 +117,7 @@ body {
 
 .input {
     flex: 1;
-    height: 6vh;
+    height: 3.5rem;
     font-size: 16px;
     outline: 0;
     border: 0;
@@ -126,6 +130,7 @@ body {
     background: darkorange;
     color: whitesmoke;
     font-size: 16px;
+    text-transform: uppercase;
     cursor: pointer;
     outline: 0;
     border: 0;

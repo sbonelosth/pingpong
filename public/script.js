@@ -17,10 +17,10 @@ form.addEventListener("submit", e => {
 
     let now = new Date().toLocaleTimeString('it-IT').slice(0, 5);
     msgs.innerHTML += `
-    <p class="your-name">${now} - You</p>
     <div class="sent-msg-container">
         <p class="sent-msg">${input.value}</p>
     </div>
+    <p class="your-name">${now} - You</p>
     `;
     socket.emit("message:send", { name:userName, message:input.value});
     input.value = "";
@@ -30,10 +30,10 @@ form.addEventListener("submit", e => {
 socket.on("message:receive", payload => {
     let now = new Date().toLocaleTimeString('it-IT').slice(0, 5);
     msgs.innerHTML += `
-    <p class="received-name">${(payload.name === "") ? `user ${payload.id}` : payload.name} - ${now}</p>
     <div class="received-msg-container">
-        <p class="sent-msg">${payload.message}</p>
+        <p class="received-msg">${payload.message}</p>
     </div>
+    <p class="received-name">${(payload.name === "") ? `user ${payload.id}` : payload.name} - ${now}</p>
     `;
     msgscontainer.scrollTo(0, msgscontainer.scrollHeight);
 })
