@@ -15,10 +15,9 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
 });
 
-
 app.use(express.static(__dirname + "/public"));
 const io = new Server(httpServer);
 onSocket(io);
 
 const port = process.env.PORT || 8080;
-httpServer.listen(port, () => console.log(`Something going on on port ${port}...`));
+httpServer.listen(port, () => console.log(`Just Us is active on port ${port}...`));
