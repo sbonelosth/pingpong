@@ -35,4 +35,3 @@ socket.on("message:receive", payload => {
     <p class="received-name">${(payload.name === "") ? `user ${payload.id}` : payload.name} - ${now}</p>`;
     msgscontainer.scrollTo(0, msgscontainer.scrollHeight);
 })
- 
