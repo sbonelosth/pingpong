@@ -3,6 +3,7 @@ const msgs = document.getElementById("msgs")
 const form = document.getElementById("form")
 const input = document.getElementById("msg-input")
 const msgscontainer = document.getElementById("msgs-container")
+const userRoom = document.getElementById("user-room")
 
 const userName = prompt("Enter your name:")
 
@@ -11,6 +12,8 @@ socket.emit("user:join", (userName === "" || userName == null) ? `user ${socket.
 socket.on("global:message", msg => {
     msgs.innerHTML += `<p class="join-msg">${msg}</p>`
 })
+
+userRoom.innerHTML = `${userName}`
 
 form.addEventListener("submit", e => {
     e.preventDefault()
