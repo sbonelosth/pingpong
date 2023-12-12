@@ -7,13 +7,13 @@ const userRoom = document.getElementById("user-room")
 
 const userName = prompt("Enter your name:")
 
-socket.emit("user:join", (userName === "" || userName == null) ? `user ${socket.id}`: userName)
+socket.emit("user:join", (userName === "" || userName == null) ? `unidentified user`: userName)
+userRoom.innerHTML = userName
 
 socket.on("global:message", msg => {
     msgs.innerHTML += `<p class="join-msg">${msg}</p>`
 })
 
-userRoom.innerHTML = `${userName}`
 
 form.addEventListener("submit", e => {
     e.preventDefault()
@@ -37,4 +37,11 @@ socket.on("message:receive", payload => {
     </div>
     <p class="received-name">${(payload.name === "") ? `user ${payload.id}` : payload.name} - ${now}</p>`
     msgscontainer.scrollTo(0, msgscontainer.scrollHeight)
+})
+
+const leave = document.getElementById("leave")
+leave.addEventListener("click", function() {
+    socket.emit("user:left", userName)
+    document.querySelector(".input-container").style.display = "none"
+    msgs.innerHTML = `<p class="join-msg">Refresh the page to join a chatroom</p>`
 })

@@ -45,18 +45,24 @@ function leaveRoom(socket) {
             return name
         }
     }
-    
+
     return null
 }
 
 const onSocket = (io) => {
     io.on("connection", (socket) => {
         let room = joinRoom(socket)
-        
         socket.on("user:join", (name) => {
             !users.some((user) => user.name === name) &&
                 users.push({ name, socketId: socket.id })
+
             io.to(room).emit("global:message", `${name} joined room ${room}`)
+        })
+
+        socket.on("user:left", () => {
+            const user = users.filter((user) => user.socketId === socket.id)
+            room = leaveRoom(socket)
+            io.to(room).emit("global:message", `${user[0].name} left room ${room}`)
         })
 
         socket.on("message:send", (payload) => {

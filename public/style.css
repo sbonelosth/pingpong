@@ -22,6 +22,7 @@ body {
     width: 100%;
     height: 3.5rem;
     color: grey;
+    text-transform: uppercase;
     box-shadow: 1rem 1rem 1rem black;
 }
 
@@ -30,7 +31,10 @@ body {
 }
 
 .leave {
+    cursor: pointer;
+    color: red;
     margin-right: 1rem;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .container {
