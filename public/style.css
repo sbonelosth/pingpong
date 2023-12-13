@@ -34,7 +34,12 @@ body {
     cursor: pointer;
     color: red;
     margin-right: 1rem;
+    width: fit-content;
     -webkit-tap-highlight-color: transparent;
+}
+
+.fa-solid {
+    padding: 10px;
 }
 
 .container {
