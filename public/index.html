@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Just Us</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -19,7 +20,7 @@
             <div class="msgs" id="msgs"></div>
         </div>
         <form class="input-container" action="" id="form">
-            <input class="input" type="text" id="msg-input" placeholder="Message" required>
+            <input class="input" type="text" id="msg-input" placeholder="Message" required onkeyup="typing()">
             <button class="btn" type="submit" id="send-btn">send</button>
         </form>
     </main>
