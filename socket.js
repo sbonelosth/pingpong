@@ -73,7 +73,7 @@ const onSocket = (io) => {
         socket.on("disconnect", () => {
             const user = users.filter((user) => user.socketId === socket.id)
             room = leaveRoom(socket)
-            io.to(room).emit("global:message", `${user[0].name} left room ${room}`)
+            io.to(room).emit("global:message", `${user[0]?.name} left room ${room}`)
         })
     })
 }
