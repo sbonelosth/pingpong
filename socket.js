@@ -73,7 +73,7 @@ const onSocket = (io) => {
         socket.on("disconnect", () => {
             const user = users.filter((user) => user.socketId === socket.id)
             room = leaveRoom(socket)
-            // using optional chaining and nullish coalescing {object?.property ?? "default vaule"} to handle the crash
+            // using optional chaining and nullish coalescing to handle the crash
             io.to(room).emit("global:message", `${user[0]?.name??"User Not Found"} left room ${room}`)
         })
     })
