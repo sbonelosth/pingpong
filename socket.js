@@ -62,8 +62,8 @@ const onSocket = (io) => {
         socket.on("user:left", () => {
             const user = users.filter((user) => user.socketId === socket.id)
             room = leaveRoom(socket)
-
-            io.to(room).emit("global:message", `${user[0]?.name} left room ${room}`)
+            // using optional chaining and nullish coalescing {object?.property ?? "default vaule"} to handle the crash
+            io.to(room).emit("global:message", `${user[0]?.name??"User Not Found"} left room ${room}`)
         })
 
         socket.on("message:send", (payload) => {
@@ -73,7 +73,8 @@ const onSocket = (io) => {
         socket.on("disconnect", () => {
             const user = users.filter((user) => user.socketId === socket.id)
             room = leaveRoom(socket)
-            io.to(room).emit("global:message", `${user[0]?.name} left room ${room}`)
+            // using optional chaining and nullish coalescing {object?.property ?? "default vaule"} to handle the crash
+            io.to(room).emit("global:message", `${user[0]?.name??"User Not Found"} left room ${room}`)
         })
     })
 }
