@@ -138,29 +138,83 @@ body {
 }
 
 .input-container {
-    width: 100%;
+    width: 95%;
+    margin: 1rem auto;
+    padding: 0.5rem;
     position: fixed;
     bottom: 0;
     display: flex;
+    border-radius: 40px;
+    background-color: whitesmoke;
 }
 
 .input {
     flex: 1;
-    height: 3.5rem;
+    height: 3rem;
     font-size: 16px;
     outline: 0;
     border: 0;
+    border-radius: 40px;
     padding: 0 10px;
-    border-top: 2px solid darkorange;
+    background-color: transparent;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.attach-file {
+    display: none;
+    width: 3rem;
+    background-image: url("photos.png");
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+    cursor: pointer;
+}
+
+.preview img {
+    height: 64px;
+    border-radius: 5px;
+    order: 1;
+}
+
+.preview ol {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview li {
+    width: 4rem;
+    margin: 0.5rem;
+}
+
+.preview p {
+    color: grey;
+}
+
+.preview {
+    position: absolute;
+    bottom: 5rem;
+    left: 1rem;
 }
 
 .btn {
-    width: 100px;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
     background: darkorange;
+    background-image: url("send.png");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
     color: whitesmoke;
     font-size: 16px;
     text-transform: uppercase;
     cursor: pointer;
     outline: 0;
     border: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

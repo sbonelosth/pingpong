@@ -15,10 +15,23 @@ socket.on("global:message", msg => {
 })
 
 
+// const imgFile = document.getElementsByClassName("img-files")
+
 form.addEventListener("submit", e => {
     e.preventDefault()
 
     let now = new Date().toLocaleTimeString('it-IT').slice(0, 5)
+
+    /***
+    const f = document.getElementById("image-uploads").files[0]
+    const reader = new FileReader()
+    reader.onload = function(){
+        const base64 = this.result.replace(/.*base64,/, '')
+        socket.emit("image", base64)
+    }
+    reader.readAsDataURL(f)
+    */
+
     msgs.innerHTML += `
     <div class="sent-msg-container">
         <p class="sent-msg">${input.value}</p>
@@ -40,8 +53,27 @@ socket.on("message:receive", payload => {
 })
 
 const leave = document.getElementById("leave")
+
 leave.addEventListener("click", function() {
     socket.emit("user:left", userName)
     document.querySelector(".input-container").style.display = "none"
     msgs.innerHTML = `<p class="join-msg">Refresh the page to join a chatroom</p>`
 })
+
+/***
+document.getElementById("image-uploads").addEventListener("change", () => {
+    const f = this.files[0]
+    const reader = new FileReader()
+    reader.onload = function(){
+        const base64 = this.result.replace(/.*base64,/, '')
+        socket.emit("image", base64)
+    }
+    reader.readAsDataURL(f)
+}, false)
+
+socket.on("image", function(data){
+    const img = new Image()
+    img.src = 'data:image/jpeg;base64, ' + data
+    msgs.appendChild(img)
+})
+*/

@@ -1,3 +1,5 @@
+// import 'node:fs/promises'
+
 const users = []
 var rooms = {}
 
@@ -69,6 +71,16 @@ const onSocket = (io) => {
         socket.on("message:send", (payload) => {
             socket.broadcast.to(room).emit("message:receive", payload)
         })
+
+        /***
+        socket.on("image", (data) => {
+            const buffer = Buffer.from(data, 'base64')
+            const fs = require('fs')
+            fs.writeFile('image.jpg', buffer, (err) => {
+                (err)?console.error(err):console.log('Success...')
+            })
+            io.to(room).emit("image", data)
+        })*/
 
         socket.on("disconnect", () => {
             const user = users.filter((user) => user.socketId === socket.id)
