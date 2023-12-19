@@ -57,13 +57,15 @@ body {
 }
 
 .msgs-container {
-    width: 100%;
+    width: 100vw;
     height: 83vh;
     position: fixed;
     top: 3.5rem;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .msgs {
@@ -82,15 +84,25 @@ body {
     margin: 3px 0;
 }
 
-.sent-msg-container, .sent-img {
+.sent-msg-container {
     display: flex;
     flex-direction: column;
     align-self: flex-end;
     width: fit-content;
     max-width: 50vw;
+    word-break: break-all;
     background: darkorange;
     margin: 3px 0;
     border-radius: 20px;
+    padding: 10px 20px;
+}
+
+.sent-img {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    width: fit-content;
+    margin: 3px 0;
     padding: 10px 20px;
 }
 
@@ -115,6 +127,7 @@ body {
     flex-direction: column;
     align-self: flex-start;
     width: fit-content;
+    word-break: break-all;
     max-width: 50vw;
     background: grey;
     margin: 3px 0;
