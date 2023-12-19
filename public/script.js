@@ -99,7 +99,7 @@ socket.on("message:receive", payload => {
         <p class="received-msg">${payload.message}</p>
     </div>
     <div class="img-container received-img"></div>`
-    msgs.innerHTML += `<p class="received-name">${(payload.name === "") ? `user ${payload.id}` : payload.name} - ${now}</p>`
+    msgs.innerHTML += `<p class="received-name">${payload.name} - ${now}</p>`
     msgscontainer.scrollTo(0, msgscontainer.scrollHeight)
 })
 

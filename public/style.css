@@ -23,7 +23,7 @@ body {
     height: 3.5rem;
     color: grey;
     text-transform: uppercase;
-    box-shadow: 1rem 1rem 4rem black, 1rem -1rem 4rem black;
+    box-shadow: 1rem 1rem 3rem black, 1rem -1rem 3rem black;
 }
 
 .user-room {
@@ -91,14 +91,15 @@ body {
     align-self: flex-end;
     width: fit-content;
     max-width: 50vw;
-    word-break: break-all;
-    background: darkorange;
+    word-break: keep-all;
     margin: 3px 0;
-    border-radius: 20px;
+    border: 1.5px solid darkorange;
+    border-radius: 50px;
     padding: 10px 20px;
+    overflow: hidden;
 }
 
-.sent-img {
+.sent-img, .received-img {
     display: flex;
     flex-direction: column;
     align-self: flex-end;
@@ -123,17 +124,22 @@ body {
     font-size: 16px;
 }
 
-.received-msg-container, .received-img {
+.received-msg-container {
     display: flex;
     flex-direction: column;
     align-self: flex-start;
     width: fit-content;
-    word-break: break-all;
+    word-break: keep-all;
     max-width: 50vw;
-    background: grey;
+    border: 1.5px solid grey;
     margin: 3px 0;
-    border-radius: 20px;
+    border-radius: 50px;
     padding: 10px 20px;
+    overflow: hidden;
+}
+
+.received-img {
+    align-self: flex-start;
 }
 
 .received-name {
@@ -168,7 +174,7 @@ body {
     padding: 0.5rem;
     bottom: 0;
     display: flex;
-    border-radius: 40px;
+    border-radius: 50px;
     background-color: whitesmoke;
 }
 
@@ -198,8 +204,8 @@ input[type="file"] {
 }
 
 .img-container img {
-    width: 250px;
-    border-radius: 10px;
+    width: 300px;
+    border-radius: 20px;
 }
 
 .img-container {
