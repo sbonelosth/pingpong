@@ -1,4 +1,4 @@
-// import 'node:fs/promises'
+import * as fs from 'fs'
 
 const users = []
 var rooms = {}
@@ -65,28 +65,24 @@ const onSocket = (io) => {
             const user = users.filter((user) => user.socketId === socket.id)
             room = leaveRoom(socket)
             // using optional chaining and nullish coalescing {object?.property ?? "default vaule"} to handle the crash
-            io.to(room).emit("global:message", `${user[0]?.name??"User Not Found"} left room ${room}`)
+            io.to(room).emit("global:message", `${user[0]?.name ?? "User Not Found"} left room ${room}`)
         })
 
         socket.on("message:send", (payload) => {
             socket.broadcast.to(room).emit("message:receive", payload)
         })
 
-        /***
-        socket.on("image", (data) => {
-            const buffer = Buffer.from(data, 'base64')
-            const fs = require('fs')
-            fs.writeFile('image.jpg', buffer, (err) => {
-                (err)?console.error(err):console.log('Success...')
-            })
-            io.to(room).emit("image", data)
-        })*/
+
+        socket.on("upload", function(data) {
+            // broadcast the file data to all other clients
+            socket.broadcast.to(room).emit("image", data)
+        })
 
         socket.on("disconnect", () => {
             const user = users.filter((user) => user.socketId === socket.id)
             room = leaveRoom(socket)
             // using optional chaining and nullish coalescing to handle the crash
-            io.to(room).emit("global:message", `${user[0]?.name??"User Not Found"} left room ${room}`)
+            io.to(room).emit("global:message", `${user[0]?.name ?? "User Not Found"} left room ${room}`)
         })
     })
 }

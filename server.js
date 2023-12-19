@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 })
 
 app.use(express.static(__dirname + "/public"))
-const io = new Server(httpServer)
+const io = new Server(httpServer, {maxHttpBufferSize:1e8})
 onSocket(io)
 
 const port = process.env.PORT || 8080

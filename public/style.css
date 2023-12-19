@@ -58,7 +58,7 @@ body {
 
 .msgs-container {
     width: 100%;
-    height: 85vh;
+    height: 83vh;
     position: fixed;
     top: 3.5rem;
     display: flex;
@@ -82,7 +82,7 @@ body {
     margin: 3px 0;
 }
 
-.sent-msg-container {
+.sent-msg-container, .sent-img {
     display: flex;
     flex-direction: column;
     align-self: flex-end;
@@ -110,7 +110,7 @@ body {
     font-size: 16px;
 }
 
-.received-msg-container {
+.received-msg-container, .received-img {
     display: flex;
     flex-direction: column;
     align-self: flex-start;
@@ -164,13 +164,23 @@ input[type="file"] {
 }
 
 .attach-file {
-    display: none;
+    display: inline-block;
     width: 3rem;
     background-image: url("photos.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
     cursor: pointer;
+}
+
+.img-container img {
+    width: 250px;
+    border-radius: 10px;
+}
+
+.img-container {
+    padding: 0;
+    background-color: transparent;
 }
 
 .preview img {
@@ -188,7 +198,7 @@ input[type="file"] {
 
 .preview li {
     width: 4rem;
-    margin: 0.5rem;
+    margin: 1rem;
 }
 
 .preview p {
@@ -198,7 +208,7 @@ input[type="file"] {
 .preview {
     position: absolute;
     bottom: 5rem;
-    left: 1rem;
+    left: 2rem;
 }
 
 .btn {

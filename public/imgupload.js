@@ -1,5 +1,5 @@
 const imgInput = document.querySelector("input");
-const preview = document.querySelector(".preview");
+
 
 imgInput.style.opacity = 0;
 
