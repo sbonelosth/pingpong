@@ -86,7 +86,7 @@ socket.on("image", function(data) {
     // set the image source to the data URL
     image.src = data
     // append the image to the the message received
-    for (let index = 0 index < rec.length index++) {
+    for (let index = 0; index < rec.length; index++) {
         rec[rec.length - 1].appendChild(image)
     }
     msgscontainer.scrollTo(0, msgscontainer.scrollHeight)
