@@ -19,14 +19,17 @@
         <div class="msgs-container" id="msgs-container">
             <div class="msgs" id="msgs"></div>
         </div>
-        <div class="preview"></div> 
-        <form class="input-container" action="post" id="form" enctype="multipart/form-data">
-            <label class="attach-file">
-                <input type="file" id="image-uploads" name="image_uploads" accept=".jpg, .jpeg, .png">
-            </label>
-            <input class="input" type="text" id="msg-input" placeholder="Message" required onkeyup="typing()">
-            <button class="btn" type="submit" id="send-btn"></button>
-        </form>
+
+        <div class="input-container">
+            <div class="preview"></div>
+            <form class="form-container" action="post" id="form" enctype="multipart/form-data">
+                <label class="attach-file">
+                    <input type="file" id="image-uploads" name="image_uploads" accept=".jpg, .jpeg, .png">
+                </label>
+                <input class="input" type="text" id="msg-input" placeholder="Message" required onkeyup="typing()">
+                <button class="btn" type="submit" id="send-btn"></button>
+            </form>
+        </div>
     </main>
     <script src="https://kit.fontawesome.com/7efba1e19e.js" crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
