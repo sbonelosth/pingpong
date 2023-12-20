@@ -1,7 +1,7 @@
 {
   "name": "thumbwag",
   "version": "1.0.0",
-  "description": "",
+  "description": "pingpong is a disposable chatroom for two",
   "main": "server.js",
   "type": "module",
   "scripts": {
