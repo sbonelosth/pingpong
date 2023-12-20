@@ -20,4 +20,4 @@ const io = new Server(httpServer, {maxHttpBufferSize:1e8})
 onSocket(io)
 
 const port = process.env.PORT || 8080
-httpServer.listen(port, () => console.log(`Just Us is live on port ${port}...`))
+httpServer.listen(port, () => console.log(`pingpong is live on port ${port}...`))
