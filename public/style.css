@@ -93,7 +93,8 @@ body {
     max-width: 50vw;
     word-break: keep-all;
     margin: 3px 0;
-    border: 1.5px solid darkorange;
+    background-color: darkorange;
+    box-shadow: 0 0 1px 1px darkorange;
     border-radius: 20px;
     padding: 10px 20px;
     overflow: hidden;
@@ -131,7 +132,7 @@ body {
     width: fit-content;
     word-break: keep-all;
     max-width: 50vw;
-    border: 1.5px solid grey;
+    box-shadow: 0 0 1px 1px grey;
     margin: 3px 0;
     border-radius: 20px;
     padding: 10px 20px;
@@ -175,6 +176,7 @@ body {
     bottom: 0;
     display: flex;
     border-radius: 50px;
+    box-shadow: 0 0 1px 1px whitesmoke;
     background-color: whitesmoke;
 }
 
@@ -186,6 +188,7 @@ body {
     border: 0;
     border-radius: 40px;
     padding: 0 10px;
+    margin: 0 1rem;
     background-color: transparent;
 }
 

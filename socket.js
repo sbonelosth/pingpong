@@ -1,7 +1,22 @@
-import * as fs from 'fs'
+import * as mysql from 'mysql'
 
 const users = []
 var rooms = {}
+
+// Database
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'users'
+})
+
+/*
+connection.connect(function(err){
+    if (err) throw err
+    console.log("Connected to the database...")
+})
+*/
 
 // Define a function to create a new room with a unique name
 function createRoom() {
@@ -59,6 +74,18 @@ const onSocket = (io) => {
                 users.push({ name, socketId: socket.id })
 
             io.to(room).emit("global:message", `${name} joined room ${room}`)
+
+            /*
+            connection.query("SELECT * FROM users WHERE username = ?", [username], function(err, result){
+                if(err) throw err
+                if(result.length === 0){
+                    connection.query("INSERT INTO users (username) VALUES (?)", [username], function(err, result){
+                        if(err) throw err
+                        console.log("Inserted a new user")
+                    })
+                }
+            })
+            */
         })
 
         socket.on("user:left", () => {

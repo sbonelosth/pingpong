@@ -39,12 +39,12 @@ form.addEventListener("submit", e => {
     e.preventDefault()
 
     const file = imagefile.files[0]
-    
+
     if (file && file.type.startsWith("image/")) {
         // create a file reader object
         const reader = new FileReader()
         // add an event listener for when the file is loaded
-        reader.addEventListener("load", function() {
+        reader.addEventListener("load", function () {
             // get the file data as a base64 encoded string
             const data = reader.result
             // emit a socket.io event to the server with the file data
@@ -80,7 +80,7 @@ form.addEventListener("submit", e => {
 var rec = document.getElementsByClassName("received-img")
 
 // add a socket.io event listener for when a new image is received from the server
-socket.on("image", function(data) {
+socket.on("image", function (data) {
     // create an image element
     const image = document.createElement("img")
     // set the image source to the data URL
@@ -92,7 +92,12 @@ socket.on("image", function(data) {
     msgscontainer.scrollTo(0, msgscontainer.scrollHeight)
 })
 
+const readreceipts = document.getElementsByClassName("your-name")
 socket.on("message:receive", payload => {
+    window.onfocus = () => {
+        for (let i = 0; i < readreceipts.length; i++)
+            readreceipts[i].style.color = "#ff8c00"
+    }
     let now = new Date().toLocaleTimeString('it-IT').slice(0, 5)
     msgs.innerHTML += `
     <div class="received-msg-container">
