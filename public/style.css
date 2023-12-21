@@ -23,7 +23,7 @@ body {
     height: 3.5rem;
     color: grey;
     text-transform: uppercase;
-    box-shadow: 1rem 1rem 3rem black, 1rem -1rem 3rem black;
+    box-shadow: 0 0 3rem 2px black;
 }
 
 .user-room {
@@ -166,6 +166,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100vw;
+    box-shadow: 0 0 1px 1px grey;
     background-color: #090909;
 }
 
