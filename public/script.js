@@ -92,12 +92,7 @@ socket.on("image", function (data) {
     msgscontainer.scrollTo(0, msgscontainer.scrollHeight)
 })
 
-const readreceipts = document.getElementsByClassName("your-name")
 socket.on("message:receive", payload => {
-    window.onfocus = () => {
-        for (let i = 0; i < readreceipts.length; i++)
-            readreceipts[i].style.color = "#ff8c00"
-    }
     let now = new Date().toLocaleTimeString('it-IT').slice(0, 5)
     msgs.innerHTML += `
     <div class="received-msg-container">
