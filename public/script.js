@@ -33,6 +33,7 @@ imagefile.addEventListener("change", async () => {
         preview.innerHTML = img.outerHTML
     }
     reader.readAsArrayBuffer(f)
+    input.removeAttribute("required")
 })
 
 form.addEventListener("submit", e => {
@@ -71,6 +72,7 @@ form.addEventListener("submit", e => {
     socket.emit("message:send", { name: username, message: input.value })
 
     input.value = ""
+    input.setAttribute("required", "")
     imagefile.value = ""
     img = false
     preview.innerHTML = ""
