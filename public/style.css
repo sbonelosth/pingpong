@@ -205,6 +205,7 @@ input[type="file"] {
     background-size: 60%;
     background-position: center;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .img-container img {
