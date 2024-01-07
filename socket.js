@@ -3,7 +3,7 @@ import * as mysql from 'mysql'
 const users = []
 var rooms = {}
 
-// Database
+// database { not functional yet }
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -18,44 +18,42 @@ connection.connect(function(err){
 })
 */
 
-// Define a function to create a new room with a unique name
+// a function to create a new room with a unique name
 function createRoom() {
-    // Generate a random name for the room
+    // creating a random name for the room
     var name = Math.random().toString(36).substring(7)
-    // Initialize the room status with an empty array of sockets
+    // init the room status with an empty array of sockets
     rooms[name] = []
     return name
 }
 
-// Define a function to join a room with a socket
+// a function to ensure that a max of 2 sockets can join per room
 function joinRoom(socket) {
-    // Loop through the rooms object
     for (var name in rooms) {
-        // Check if the room has less than two sockets
+        // checking if the room has less than two sockets
         if (rooms[name].length < 2) {
-            // Add the socket to the room array
+            // adding the socket to the room array
             rooms[name].push(socket)
             socket.join(name)
             socket.emit('joined', name)
             return name
         }
     }
-    // If no room is available, create a new one
+    // creating a new one if no room is available, 
     var name = createRoom()
-    // Add the socket to the room array
+    // adding the socket to the room array
     rooms[name].push(socket)
     socket.join(name)
     socket.emit('joined', name)
     return name
 }
 
-// Define a function to leave a room with a socket
+// a function to leave a room
 function leaveRoom(socket) {
-    // Loop through the rooms object
     for (var name in rooms) {
-        // Check if the room contains the socket
+        // checking if the room contains the socket
         if (rooms[name].includes(socket)) {
-            // Remove the socket from the room array
+            // removing the socket from the room array
             rooms[name] = rooms[name].filter(s => s !== socket)
             socket.leave(name)
             socket.emit('left', name)
@@ -66,6 +64,7 @@ function leaveRoom(socket) {
     return null
 }
 
+// the main socket function to define socket.io events
 const onSocket = (io) => {
     io.on("connection", (socket) => {
         let room = joinRoom(socket)
@@ -101,7 +100,7 @@ const onSocket = (io) => {
 
 
         socket.on("upload", function(data) {
-            // broadcast the file data to all other clients
+            // broadcasting the file data to all other clients
             socket.broadcast.to(room).emit("image", data)
         })
 

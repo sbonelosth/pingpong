@@ -1,5 +1,3 @@
-//import * as fs from 'fs'
-
 id = (selector) => { return document.getElementById(selector) }
 q = (selector) => { return document.querySelector(selector) }
 
@@ -70,16 +68,16 @@ form.addEventListener("submit", e => {
     const file = imagefile.files[0]
 
     if (file && file.type.startsWith("image/")) {
-        // create a file reader object
+        // a file reader object
         const reader = new FileReader()
-        // add an event listener for when the file is loaded
+        // adding an event listener for when the img file is loaded
         reader.addEventListener("load", function () {
-            // get the file data as a base64 encoded string
+            // getting the img file data as a base64 encoded string
             const data = reader.result
-            // emit a socket.io event to the server with the file data
+            // emitting a socket.io event to the server with the img file data
             socket.emit("upload", data)
         })
-        // read the file as a data URL
+        // reading the img file as a data URL
         reader.readAsDataURL(file)
     }
 
@@ -109,13 +107,13 @@ form.addEventListener("submit", e => {
 
 var rec = document.getElementsByClassName("received-img")
 
-// add a socket.io event listener for when a new image is received from the server
+// adding a socket.io event listener for when a new image is received from the server
 socket.on("image", function (data) {
-    // create an image element
+    // creating an image element
     const image = document.createElement("img")
-    // set the image source to the data URL
+    // setting the image source to the data URL
     image.src = data
-    // append the image to the the message received
+    // appending the image to the the message received
     for (let index = 0; index < rec.length; index++) {
         rec[rec.length - 1].appendChild(image)
     }
