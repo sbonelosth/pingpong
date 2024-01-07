@@ -9,13 +9,34 @@ const userRoom = document.getElementById("user-room")
 
 const preview = document.querySelector(".preview")
 
-const username = prompt("Enter your name:")
+const disclaimer = document.querySelector(".disclaimer")
+disclaimer.innerText = "The username is for display purposes, it's not compulsory."
 
-socket.emit("user:join", (username === "" || username == null) ? `unidentified user` : username)
-userRoom.innerHTML = username
+const showPopup = document.querySelector("#show-popup-btn")
+const popupWidget = document.querySelector(".popup-widget")
+
+showPopup.addEventListener("click", () => {
+    popupWidget.style.display = "flex"
+    showPopup.style.display = "none"
+})
+
+const proceed = document.querySelector("#proceed-btn")
+var username
+
+proceed.addEventListener("click", () => {
+    username = document.querySelector("#username").value
+    username = (username === "") ? "noname" : username
+    popupWidget.style.display = "none"
+
+    document.querySelector("main").style.display = "flex"
+
+    socket.emit("user:join", username)
+    userRoom.innerHTML = username
+})
 
 socket.on("global:message", msg => {
     msgs.innerHTML += `<p class="join-msg">${msg}</p>`
+    msgscontainer.scrollTo(0, msgscontainer.scrollHeight)
 })
 
 const imagefile = document.getElementById("image-uploads")

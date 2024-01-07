@@ -11,15 +11,26 @@
 </head>
 
 <body>
-    <div class="action-bar">
-        <div class="user-room" id="user-room"></div>
-        <div class="leave" id="leave">leave<i class="fa-solid fa-arrow-right-from-bracket"></i></div>
+    <button id="show-popup-btn">start chatting</button>
+    <div class="popup-widget">
+        <div class="popup-header">
+            <span class="close">&times;</span>
+            <p class="popup-title">pingpong Gateway</p>
+        </div>
+        <div class="popup-form" id="popup-form">
+            <input type="text" id="username" placeholder="username (optional)">
+            <p class="disclaimer"></p>
+            <button id="proceed-btn">proceed</button>
+        </div>
     </div>
     <main class="container">
+        <div class="action-bar">
+            <div class="user-room" id="user-room"></div>
+            <div class="leave" id="leave">leave<i class="fa-solid fa-arrow-right-from-bracket"></i></div>
+        </div>
         <div class="msgs-container" id="msgs-container">
             <div class="msgs" id="msgs"></div>
         </div>
-
         <div class="input-container">
             <div class="preview"></div>
             <form class="form-container" action="post" id="form" enctype="multipart/form-data">
