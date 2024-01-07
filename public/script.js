@@ -23,6 +23,13 @@ showPopup.addEventListener("click", () => {
 const proceed = document.querySelector("#proceed-btn")
 var username
 
+const close = document.querySelector(".close")
+close.addEventListener("click", () => {
+    popupWidget.style.display = "none"
+    showPopup.style.display = "flex"
+})
+
+
 proceed.addEventListener("click", () => {
     username = document.querySelector("#username").value
     username = (username === "") ? "noname" : username

@@ -57,7 +57,7 @@ body {
     letter-spacing: 1px;
 }
 
-.close { font-size: larger;}
+.close { font-size: larger; cursor: pointer; -webkit-tap-highlight-color: transparent;}
 
 .popup-form {
     width: 100%;
