@@ -8,7 +8,6 @@ const msgs = id("msgs")
 const form = id("form")
 const input = id("msg-input")
 const msgscontainer = id("msgs-container")
-const userRoom = id("user-room")
 
 const preview = q(".preview")
 
@@ -26,12 +25,10 @@ showPopup.addEventListener("click", () => {
 const proceed = q("#proceed-btn")
 var username
 
-const close = q(".close")
-close.addEventListener("click", () => {
+q(".close").addEventListener("click", () => {
     popupWidget.style.display = "none"
     showPopup.style.display = "flex"
 })
-
 
 proceed.addEventListener("click", () => {
     username = q("#username").value
@@ -41,7 +38,7 @@ proceed.addEventListener("click", () => {
     q("main").style.display = "flex"
 
     socket.emit("user:join", username)
-    userRoom.innerHTML = username
+    id("user-room").innerHTML = username
 })
 
 socket.on("global:message", msg => {
