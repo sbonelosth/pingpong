@@ -19,7 +19,8 @@ connection.connect(function(err){
 */
 
 // a function to create a new room with a unique name
-function createRoom() {
+const createRoom = () =>
+{
     // creating a random name for the room
     var name = Math.random().toString(36).substring(7)
     // init the room status with an empty array of sockets
@@ -28,10 +29,13 @@ function createRoom() {
 }
 
 // a function to ensure that a max of 2 sockets can join per room
-function joinRoom(socket) {
-    for (var name in rooms) {
+const joinRoom = (socket) =>
+{
+    for (var name in rooms) 
+    {
         // checking if the room has less than two sockets
-        if (rooms[name].length < 2) {
+        if (rooms[name].length < 2) 
+        {
             // adding the socket to the room array
             rooms[name].push(socket)
             socket.join(name)
@@ -49,10 +53,13 @@ function joinRoom(socket) {
 }
 
 // a function to leave a room
-function leaveRoom(socket) {
-    for (var name in rooms) {
+const leaveRoom = (socket) => 
+{
+    for (var name in rooms) 
+    {
         // checking if the room contains the socket
-        if (rooms[name].includes(socket)) {
+        if (rooms[name].includes(socket)) 
+        {
             // removing the socket from the room array
             rooms[name] = rooms[name].filter(s => s !== socket)
             socket.leave(name)
@@ -60,15 +67,17 @@ function leaveRoom(socket) {
             return name
         }
     }
-
     return null
 }
 
 // the main socket function to define socket.io events
-const onSocket = (io) => {
-    io.on("connection", (socket) => {
+const onSocket = (io) => 
+{
+    io.on("connection", (socket) => 
+    {
         let room = joinRoom(socket)
-        socket.on("user:join", (name) => {
+        socket.on("user:join", (name) => 
+        {
             !users.some((user) => user.name === name) &&
                 users.push({ name, socketId: socket.id })
 
@@ -87,24 +96,28 @@ const onSocket = (io) => {
             */
         })
 
-        socket.on("user:left", () => {
+        socket.on("user:left", () => 
+        {
             const user = users.filter((user) => user.socketId === socket.id)
             room = leaveRoom(socket)
             // using optional chaining and nullish coalescing {object?.property ?? "default vaule"} to handle the crash
             io.to(room).emit("global:message", `${user[0]?.name ?? "User Not Found"} left room ${room}`)
         })
 
-        socket.on("message:send", (payload) => {
+        socket.on("message:send", (payload) => 
+        {
             socket.broadcast.to(room).emit("message:receive", payload)
         })
 
 
-        socket.on("upload", function(data) {
-            // broadcasting the file data to all other clients
+        socket.on("upload", function(data) 
+        {
+            // broadcasting the img file data to connected clients
             socket.broadcast.to(room).emit("image", data)
         })
 
-        socket.on("disconnect", () => {
+        socket.on("disconnect", () => 
+        {
             const user = users.filter((user) => user.socketId === socket.id)
             room = leaveRoom(socket)
             // using optional chaining and nullish coalescing to handle the crash
