@@ -1,29 +1,32 @@
 //import * as fs from 'fs'
 
+id = (selector) => { return document.getElementById(selector) }
+q = (selector) => { return document.querySelector(selector) }
+
 const socket = io()
-const msgs = document.getElementById("msgs")
-const form = document.getElementById("form")
-const input = document.getElementById("msg-input")
-const msgscontainer = document.getElementById("msgs-container")
-const userRoom = document.getElementById("user-room")
+const msgs = id("msgs")
+const form = id("form")
+const input = id("msg-input")
+const msgscontainer = id("msgs-container")
+const userRoom = id("user-room")
 
-const preview = document.querySelector(".preview")
+const preview = q(".preview")
 
-const disclaimer = document.querySelector(".disclaimer")
+const disclaimer = q(".disclaimer")
 disclaimer.innerText = "The username is for display purposes, it's not compulsory."
 
-const showPopup = document.querySelector("#show-popup-btn")
-const popupWidget = document.querySelector(".popup-widget")
+const showPopup = q("#show-popup-btn")
+const popupWidget = q(".popup-widget")
 
 showPopup.addEventListener("click", () => {
     popupWidget.style.display = "flex"
     showPopup.style.display = "none"
 })
 
-const proceed = document.querySelector("#proceed-btn")
+const proceed = q("#proceed-btn")
 var username
 
-const close = document.querySelector(".close")
+const close = q(".close")
 close.addEventListener("click", () => {
     popupWidget.style.display = "none"
     showPopup.style.display = "flex"
@@ -31,11 +34,11 @@ close.addEventListener("click", () => {
 
 
 proceed.addEventListener("click", () => {
-    username = document.querySelector("#username").value
+    username = q("#username").value
     username = (username === "") ? "noname" : username
     popupWidget.style.display = "none"
 
-    document.querySelector("main").style.display = "flex"
+    q("main").style.display = "flex"
 
     socket.emit("user:join", username)
     userRoom.innerHTML = username
@@ -46,7 +49,7 @@ socket.on("global:message", msg => {
     msgscontainer.scrollTo(0, msgscontainer.scrollHeight)
 })
 
-const imagefile = document.getElementById("image-uploads")
+const imagefile = id("image-uploads")
 
 var img = null
 
@@ -133,11 +136,11 @@ socket.on("message:receive", payload => {
     msgscontainer.scrollTo(0, msgscontainer.scrollHeight)
 })
 
-const leave = document.getElementById("leave")
+const leave = id("leave")
 
 leave.addEventListener("click", function () {
     socket.emit("user:left", username)
-    document.querySelector(".input-container").style.display = "none"
+    q(".input-container").style.display = "none"
     msgs.innerHTML = `<p class="join-msg">Refresh the page to join a chatroom</p>`
 })
 
