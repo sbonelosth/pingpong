@@ -140,3 +140,5 @@ leave.addEventListener("click", function () {
     document.querySelector(".input-container").style.display = "none"
     msgs.innerHTML = `<p class="join-msg">Refresh the page to join a chatroom</p>`
 })
+
+window.onbeforeunload = () => { return "Everything will be erased" }
