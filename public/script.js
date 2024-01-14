@@ -31,7 +31,7 @@ const msgscontainer = id("msgs-container")
 
 const preview = q(".preview")
 
-q(".disclaimer").innerText = "The username is for display purposes, it's not compulsory."
+q(".disclaimer").innerText = "username is for display purposes, not compulsory."
 
 const showPopup = q("#show-popup-btn")
 const popupWidget = q(".popup-widget")
