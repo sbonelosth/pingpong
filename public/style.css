@@ -202,7 +202,7 @@ body {
     margin: 3px 0;
     background-color: darkorange;
     box-shadow: 0 0 1px 1px darkorange;
-    border-radius: 20px;
+    border-radius: 20px 20px 20px 4px;
     padding: 10px 20px;
     overflow: hidden;
 }
@@ -223,7 +223,7 @@ body {
     padding-right: 4px;
     text-align: right;
     font-weight: bold;
-    color: darkorange;
+    color: #9f9f9f;
 }
 
 .sent-msg {
@@ -241,7 +241,7 @@ body {
     max-width: 50vw;
     box-shadow: 0 0 1px 1px grey;
     margin: 3px 0;
-    border-radius: 20px;
+    border-radius: 20px 20px 4px 20px;
     padding: 8px 10px;
     overflow: hidden;
 }
@@ -273,7 +273,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100vw;
-    box-shadow: 0 0 1px 1px grey;
+    box-shadow: 0 0 1px 1px #9f9f9f;
     background-color: #060606;
 }
 
@@ -284,7 +284,7 @@ body {
     bottom: 0;
     display: flex;
     border-radius: 50px;
-    box-shadow: 0 0 1px 1px whitesmoke;
+    box-shadow: 0 0 1px 1px #9f9f9f;
     background-color: #161616;
 }
 
