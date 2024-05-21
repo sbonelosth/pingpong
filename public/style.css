@@ -217,7 +217,7 @@ body {
 
 .your-name {
     margin: 0;
-    font-size: 10px;
+    font-size: 8px;
     padding-bottom: 4px;
     padding-right: 4px;
     text-align: right;
@@ -228,7 +228,7 @@ body {
 .sent-msg {
     margin: 0;
     color: whitesmoke;
-    font-size: 16px;
+    font-size: 10px;
 }
 
 .received-msg-container {
@@ -241,7 +241,7 @@ body {
     box-shadow: 0 0 1px 1px grey;
     margin: 3px 0;
     border-radius: 20px;
-    padding: 10px 20px;
+    padding: 8px 10px;
     overflow: hidden;
 }
 
@@ -251,7 +251,7 @@ body {
 
 .received-name {
     margin: 0;
-    font-size: 10px;
+    font-size: 8px;
     padding-bottom: 4px;
     padding-left: 4px;
     font-weight: bold;
@@ -261,7 +261,7 @@ body {
 .received-msg {
     margin: 0;
     color: whitesmoke;
-    font-size: 16px;
+    font-size: 10px;
 }
 
 .input-container {
@@ -290,7 +290,7 @@ body {
 .input {
     flex: 1;
     height: 3rem;
-    font-size: 16px;
+    font-size: 10px;
     outline: 0;
     border: 0;
     border-radius: 40px;
