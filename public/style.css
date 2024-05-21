@@ -7,7 +7,7 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
-    background-color: #191919;
+    background-color: #060606;
     width: 100%;
 }
 
@@ -38,7 +38,7 @@ body {
     top: 40%;
     width: 20rem;
     padding-bottom: 1rem;
-    background-color: #292929;
+    background-color: #161616;
     box-shadow: 0 0 5rem 0 black, 0 0 10px 1px black;
     border-radius: 10px;
 }
@@ -50,7 +50,7 @@ body {
     flex-direction: row-reverse;
     justify-content: space-between;
     color: whitesmoke;
-    border-bottom: 1px groove #191919;
+    border-bottom: 1px groove #060606;
 }
 
 .close, .popup-title {
@@ -154,7 +154,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #191919;
+    background-color: #060606;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -180,7 +180,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    background: #191919;
+    background: #060606;
 }
 
 .join-msg {
@@ -189,6 +189,7 @@ body {
     color: grey;
     padding: 5px 20px;
     margin: 3px 0;
+    font-size: 10px;
 }
 
 .sent-msg-container {
@@ -273,18 +274,18 @@ body {
     left: 0;
     width: 100vw;
     box-shadow: 0 0 1px 1px grey;
-    background-color: #191919;
+    background-color: #060606;
 }
 
 .form-container {
-    width: 95%;
+    width: 90%;
     margin: 1rem auto;
     padding: 0.5rem;
     bottom: 0;
     display: flex;
     border-radius: 50px;
     box-shadow: 0 0 1px 1px whitesmoke;
-    background-color: whitesmoke;
+    background-color: #161616;
 }
 
 .input {
@@ -296,6 +297,7 @@ body {
     border-radius: 40px;
     padding: 0 10px;
     margin: 0 1rem;
+    color: #9f9f9f;
     background-color: transparent;
 }
 
