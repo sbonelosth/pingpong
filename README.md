@@ -1,10 +1,10 @@
 🔗: https://pingpongme.onrender.com/
 
-# pingpong is a disposable chatroom for two
-# A user can join and leave as they please
-# However, poor internet connection can lead to malfunction
+# pingpong is a disposable chatroom for two users per session
+A user can join and leave as they please. However, poor internet connection can lead to malfunction
 
-# The chatroom uses socket.io to enable the sending and receiving of messages in real-time
+# Sources:
+Web Dev Simplified - Build a Real Time Chat App With Node.js And Socket.io  🔗: https://www.youtube.com/watch?v=rxzOqP9YwmM&t=65s
 
-
-# The chatroom is developed as part of the /*abumanga project*/
+# Preview
+![Image Preview](preview.png "from the half of it (Movie)")
